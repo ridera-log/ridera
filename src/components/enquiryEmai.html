@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ridera Logistics — New Enquiry</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #f0f4f8;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .email-wrapper {
+      max-width: 620px;
+      margin: 40px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(16, 90, 180, 0.12);
+    }
+
+    /* HEADER */
+    .header {
+      background: #105AB4;
+      background-image:
+        radial-gradient(ellipse at 0% 0%, rgba(54,115,182,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 100% 100%, rgba(59,130,246,0.3) 0%, transparent 50%);
+      padding: 40px 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 40%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(59,130,246,0.15);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .logo-mark svg { width: 22px; height: 22px; }
+
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-name span {
+      color: #93c5fd;
+    }
+
+    .header-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #bfdbfe;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 em {
+      color: #93c5fd;
+      font-style: italic;
+    }
+
+    /* BODY */
+    .body {
+      background: #ffffff;
+      padding: 40px 48px;
+    }
+
+    .greeting {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .greeting strong {
+      color: #105AB4;
+    }
+
+    /* DETAILS CARD */
+    .details-card {
+      background: #f8faff;
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .details-card-header {
+      background: #105AB4;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .details-card-header span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #bfdbfe;
+    }
+
+    .details-card-header svg {
+      width: 14px;
+      height: 14px;
+      color: #93c5fd;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 20px;
+      border-bottom: 1px solid #e8f0fe;
+      gap: 16px;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3673B6;
+      min-width: 100px;
+      padding-top: 1px;
+    }
+
+    .detail-value {
+      font-size: 14px;
+      color: #1e3a5f;
+      font-weight: 500;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .detail-value.message-body {
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #374151;
+      font-weight: 400;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    /* SERVICE BADGE */
+    .service-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #105AB4;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #dbeafe, transparent);
+      margin: 28px 0;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #105AB4;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: #3673B6;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid #3673B6;
+      margin-left: 12px;
+    }
+
+    /* INFO STRIP */
+    .info-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .info-strip-item {
+      flex: 1;
+      padding: 16px 14px;
+      text-align: center;
+      border-right: 1px solid #dbeafe;
+      background: #f8faff;
+    }
+
+    .info-strip-item:last-child {
+      border-right: none;
+    }
+
+    .info-strip-icon {
+      width: 32px;
+      height: 32px;
+      background: #dbeafe;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
+
+    .info-strip-icon svg { width: 16px; height: 16px; color: #105AB4; }
+
+    .info-strip-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 2px;
+    }
+
+    .info-strip-value {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e3a5f;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #0f1f3d;
+      padding: 32px 48px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 24px;
+    }
+
+    .footer-brand .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand .brand-tagline {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-address {
+      font-size: 11px;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .footer-legal {
+      font-size: 11px;
+      color: #4b5563;
+      text-align: right;
+    }
+
+    .footer-legal a {
+      color: #6b7280;
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .email-wrapper { margin: 0; border-radius: 0; }
+      .header, .body, .footer { padding: 28px 24px; }
+      .header h1 { font-size: 22px; }
+      .info-strip { flex-direction: column; }
+      .info-strip-item { border-right: none; border-bottom: 1px solid #dbeafe; }
+      .info-strip-item:last-child { border-bottom: none; }
+      .footer-top { flex-direction: column; }
+      .footer-links { justify-content: flex-start; }
+      .footer-bottom { flex-direction: column; }
+      .footer-legal { text-align: left; }
+      .cta-btn-ghost { margin-left: 0; margin-top: 10px; display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo-row">
+        <div class="logo-mark">
+          <svg fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+          </svg>
+        </div>
+        <span class="logo-name">Ridera <span>Logistics</span></span>
+      </div>
+      <div class="header-tag">New Message Received</div>
+      <h1>You've got a<br/><em>new enquiry</em></h1>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <p class="greeting">
+        Hi <strong>Ridera Team</strong>,<br/><br/>
+        A new message has been submitted via the contact form on your website. Here are the full details below — please follow up promptly.
+      </p>
+
+      <!-- DETAILS CARD -->
+      <div class="details-card">
+        <div class="details-card-header">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:#93c5fd;width:14px;height:14px;">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Enquiry Details</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Full Name</span>
+          <span class="detail-value">{{name}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">{{email}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Company</span>
+          <span class="detail-value">{{company}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Service</span>
+          <span class="detail-value">
+            <span class="service-badge">{{service}}</span>
+          </span>
+        </div>
+        <div class="detail-row" style="flex-direction: column; gap: 10px;">
+          <span class="detail-label">Message</span>
+          <span class="detail-value message-body">{{message}}</span>
+        </div>
+      </div>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip">
+        <div class="info-strip-item">
+          <div class="info-strip-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#105AB4" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="info-strip-label">Response Time</div>
+          <div class="info-strip-value">Within 2 hours</div>
+        </div>
+        <div class="info-strip-item">
+          <div class="info-strip-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#105AB4" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+            </svg>
+          </div>
+          <div class="info-strip-label">Submitted</div>
+          <div class="info-strip-value">{{date}}</div>
+        </div>
+        <div class="info-strip-item">
+          <div class="info-strip-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="#105AB4" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <div class="info-strip-label">Source</div>
+          <div class="info-strip-value">Website Form</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <p>Reply directly to this enquiry or use the buttons below to get in touch with the client.</p>
+        <a href="mailto:{{email}}" class="cta-btn">Reply to Client</a>
+        <a href="https://wa.me/?text=Hi+{{name}}" class="cta-btn-ghost">WhatsApp</a>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">Ridera Logistics</div>
+          <div class="brand-tagline">
+            66 Enitan Street, Aguda,<br/>Surulere, Lagos, Nigeria
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://rideralogistics.com">Website</a>
+          <a href="tel:+2348136153906">Call Us</a>
+          <a href="mailto:contact@rideralogistics.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <div class="footer-address">
+          © 2026 Ridera Logistics. All rights reserved.<br/>
+          0813 615 3906 · 0916 686 6995
+        </div>
+        <div class="footer-legal">
+          <a href="#">Unsubscribe</a> · <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
