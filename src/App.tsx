@@ -172,19 +172,27 @@ function App(): React.ReactElement {
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <a
-        href="https://wa.me/+2348136153906?text=Hi%2C%20i%20want%20to%20learn%20more%20about%20ridera.%20thank%20you."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with us on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 animate-heartbeat"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
-          className="w-14 h-14 px-1"
-        />
-      </a>
+
+      {!(
+        location.pathname === '/login' ||
+        location.pathname === '/dashboard' ||
+        location.pathname.startsWith('/dashboard/')
+      ) && (
+          <a
+            href="https://wa.me/+2348136153906?text=Hi%2C%20i%20want%20to%20learn%20more%20about%20ridera.%20thank%20you."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with us on WhatsApp"
+            className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 animate-heartbeat"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              className="w-14 h-14 px-1"
+            />
+          </a>
+        )}
+
     </ThemeProvider>
   )
 }

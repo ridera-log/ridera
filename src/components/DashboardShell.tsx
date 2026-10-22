@@ -202,7 +202,7 @@ function DashboardShell({
               </svg>
             </button>
 
-            <img src="/logo.png" alt="Ridera" className="h-8 w-auto shrink-0" />
+            <img src="/drive-download-20260304T223405Z-3-001/logo.png" alt="Ridera" className="h-16 w-auto shrink-0" />
 
             <div className="hidden min-w-0 sm:block">
               <p className="truncate text-[13px] font-semibold leading-tight tracking-tight text-slate-900 dark:text-white">
