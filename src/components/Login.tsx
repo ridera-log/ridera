@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import { loginSchema } from '../validations/schemas'
 import { useLoginMutation } from '../hooks/useQueries'
 import { useAppSelector } from '../store/store'
+import logo from "/drive-download-20260304T223405Z-3-001/logo.png";
 
 interface LoginProps {
   onLogin: (email: string) => void
@@ -38,7 +39,9 @@ function Login({ onLogin }: LoginProps): React.ReactElement {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.2),transparent_42%),radial-gradient(circle_at_85%_10%,rgba(251,146,60,0.2),transparent_38%)] dark:bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.22),transparent_40%),radial-gradient(circle_at_85%_10%,rgba(251,146,60,0.18),transparent_40%)]" />
       <div className="relative max-w-md rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-xl shadow-slate-300/40 backdrop-blur dark:border-slate-700 dark:bg-slate-900/90 dark:shadow-slate-950/60">
         <div className="mb-8 flex flex-col items-center text-center">
-          <img src="/logo.png" alt="Ridera logo" className="mb-4 h-16 w-auto" />
+          <a href="/">
+            <img src={logo} alt="Ridera logo" className="mb-4 h-14 w-auto" />
+          </a>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Ridera Portal</h1>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Sign in to manage quotes and track activity.</p>
         </div>
@@ -52,11 +55,10 @@ function Login({ onLogin }: LoginProps): React.ReactElement {
               id="email"
               type="email"
               {...formik.getFieldProps('email')}
-              className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none dark:text-white ${
-                formik.touched.email && formik.errors.email
+              className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none dark:text-white ${formik.touched.email && formik.errors.email
                   ? 'border-rose-500 dark:border-rose-500 dark:bg-slate-800/50'
                   : 'border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-800'
-              }`}
+                }`}
               placeholder="you@ridera.com"
               disabled={isSubmitting}
             />
@@ -74,11 +76,10 @@ function Login({ onLogin }: LoginProps): React.ReactElement {
                 id="password"
                 type={showPassword ? 'text' : 'password'}
                 {...formik.getFieldProps('password')}
-                className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none dark:text-white ${
-                  formik.touched.password && formik.errors.password
+                className={`w-full rounded-xl border px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none dark:text-white ${formik.touched.password && formik.errors.password
                     ? 'border-rose-500 dark:border-rose-500 dark:bg-slate-800/50'
                     : 'border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-800'
-                }`}
+                  }`}
                 placeholder="Enter your password"
                 disabled={isSubmitting}
               />

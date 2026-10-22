@@ -31,7 +31,6 @@ const Header: FC = () => {
         <Link to="/" className="relative z-10 flex items-center gap-3">
           <img src="/drive-download-20260304T223405Z-3-001/logo3.png" alt="Ridera" className="w-24 scale-105 dark:hidden" />
           <img src="/drive-download-20260304T223405Z-3-001/Ridera-white-logo.png" alt="Ridera" className="w-24 scale-105 hidden dark:block" />
-
         </Link>
 
         {/* Desktop Navigation */}
